@@ -58,7 +58,7 @@ def update_forecast(station):
     
     with SqliteDatabase(station_id) as database:
         log.debug('downloading forecast data')
-        r = requests.get(station["urls"]["forecast"])
+        r = requests.get(station["urls"]["forecast"]["url"])
 
         if r.status_code == 200:
             periods = r.json()["properties"]["periods"]
